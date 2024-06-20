@@ -1,0 +1,17 @@
+---
+# This is an example playbook to execute Ansible tests.
+
+- name: Verify
+  hosts: all
+  gather_facts: false
+  tasks:
+    - name: Stat kubectl
+      ansible.builtin.stat:
+        path: /usr/bin/kubectl
+      register: kubectl_present
+    - name: Check kubectl is present
+      ansible.builtin.assert:
+        that:
+          - kubectl_present.stat.exists
+        fail_msg: "kubectl not setup"
+        success_msg: "kubectl is setup"
