@@ -38,6 +38,11 @@
 # - debug:
 #     msg: "{{ kubectl_completion }}"
 
+- name: Check existence of /etc/bash_completion.d
+  ansible.builtin.stat:
+    path: /etc/bash_completion.d
+  register: bash_completion_d_stat
+
 - name: Create completion bash file
   ansible.builtin.copy:
     content: "{{ kubectl_completion.stdout }}"
@@ -48,3 +53,4 @@
   changed_when: false
   when:
     - kubectl_version == kubectl_version_client_installed.stdout
+    - bash_completion_d_stat.stat.exists
