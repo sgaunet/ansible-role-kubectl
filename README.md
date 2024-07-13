@@ -1,7 +1,7 @@
 
 # Ansible Role: kubectl
 
-[![CI](https://github.com/sgaunet/ansible-role-kubectl/workflows/CI/badge.svg?event=push)](https://github.com/sgaunet/ansible-role-kubectl/actions?query=workflow%3ACI)
+[![CI](https://github.com/sgaunet/ansible-role-kubectl/workflows/CI/badge.svg)](https://github.com/sgaunet/ansible-role-kubectl/actions?query=workflow%3ACI)
 
 An Ansible Role that installs kubectl on Linux.
 
